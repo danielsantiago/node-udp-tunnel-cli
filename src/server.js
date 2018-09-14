@@ -56,7 +56,7 @@ server_tunnel.on('error', (err) => {
     server_tunnel.close();
 });
 server_tunnel.on('message', (msg, rinfo) => {
-    if (!unicorn)
+    if (rinfo.size === 1)
     {
         console.log(`tunnel connection set for ${rinfo.address}:${rinfo.port}`);
         unicorn = rinfo;
